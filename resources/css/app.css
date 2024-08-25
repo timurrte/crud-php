@@ -1,0 +1,29 @@
+.container {
+    font-family: sans-serif;
+}
+
+.navbar ul {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.navbar li {
+    flex-direction: column;
+    background-color: rgb(51, 117, 117);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+
+}
+
+.navbar li:hover {
+    background-color: rgb(26, 73, 85);
+}
