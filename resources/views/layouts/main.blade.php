@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body class="container">
-    <header class="head">
-        <h2>Application</h2>
-        <nav class="navbar" class="row">
-            <ul >
-                <a class="navitem" href="{{route('app.index')}}"><li>Main</li></a>
-                <a class="navitem" href="{{route('post.index')}}"><li>Posts</li></a>
-                <a class="navitem" href="{{route('about.index')}}"><li>About</li></a>
-                <a class="navitem" href="{{route('contact.index')}}"><li>Contact</li></a>
-            </ul>
-        </nav>
-    </header>
-    @yield('content')
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('app.index')}}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}" href=" {{ route('post.index') }} ">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}" href="{{ route('about.index')}}">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('contact*') ? 'active' : '' }}" href="{{ route('contact.index') }}">Contact</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div class='content'>
+        @yield('content')
+    </div>
 </body>
 </html>
