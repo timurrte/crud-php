@@ -16,7 +16,7 @@
                 <label for="image">Image</label>
                 <input type="text" name='image' class="form-control" id="image" placeholder="Image">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 @endsection

@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->string('image')->nullable();
             $table->unsignedInteger('likes')->default(0);
             $table->boolean('is_published')->default(1);
 
             $table->softDeletes();
+
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->index('category_id', 'post_category_idx');
+            $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
         });
     }
 
