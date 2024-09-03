@@ -6,6 +6,7 @@
     </div>
     <div class='post'>
         <h3>{{$post->title}}</h3>
+        <h6>Category: {{ $post->category->title }}</h6>
         <p class='text'>{{$post->content}}</p>
     </div>
     <div class='edit-buttons'>
