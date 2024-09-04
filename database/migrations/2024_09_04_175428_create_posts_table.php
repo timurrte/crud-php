@@ -13,18 +13,16 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->unsignedInteger('likes')->default(0);
-            $table->boolean('is_published')->default(1);
+            $table->unsignedBigInteger('likes')->default(0);
+            $table->boolean('is_published')->default(true);
+            $table->timestamps();
 
             $table->softDeletes();
 
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->index('category_id', 'post_category_idx');
-            $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
+            $table->unsignedBigInteger('category_id');
         });
     }
 

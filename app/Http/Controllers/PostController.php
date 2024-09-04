@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
-use App\Models\PostTag;
 
 class PostController extends Controller
 {
     public function index(Request $request) {
-        $posts = Post::all();
+        $post = Post::find(1);
+        dd($post->tags);
         return view('post.index', compact('posts'));
     }
 
