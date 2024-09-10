@@ -1,7 +1,7 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AppController;
@@ -10,14 +10,16 @@ Route::get('/', [AppController::class, 'index'])->name('app.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-Route::get('/posts', [PostController::class, 'index'])->name('post.index');
-Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
 
-Route::patch('/posts/{post}', [PostController::class, 'update'])->name('post.update');
+Route::name('post.')->namespace('App\Http\Controllers\Post')->group(function() {
+    Route::get('/posts', 'IndexController')->name('index');
+    Route::get('/posts/create', 'CreateController')->name('create');
+    Route::get('/posts/{post}', 'ShowController')->name('show');
+    Route::get('/posts/{post}/edit', 'EditController')->name('edit');
 
-Route::post('/posts', [PostController::class, 'store'])->name('post.store');
+    Route::patch('/posts/{post}', 'UpdateController')->name('update');
 
-Route::delete('/posts/{post}', [PostController::class,'destroy'])->name('post.delete');
+    Route::post('/posts', 'StoreController')->name('store');
 
+    Route::delete('/posts/{post}', 'DestroyController')->name('delete');
+});
