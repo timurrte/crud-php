@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
@@ -9,7 +8,6 @@ use App\Http\Controllers\AppController;
 Route::get('/', [AppController::class, 'index'])->name('app.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-
 
 Route::name('post.')->namespace('App\Http\Controllers\Post')->group(function() {
     Route::get('/posts', 'IndexController')->name('index');
