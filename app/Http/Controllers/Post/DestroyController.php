@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Post;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Category;
-use App\Models\Tag;
-
-class DestroyController extends \App\Http\Controllers\Controller
+class DestroyController extends Controller
 {
-    public function __invoke(Post $post) {
+    /**
+     * Delete post controller.
+     */
+    public function __invoke(Post $post)
+    {
         $post->delete();
         return redirect()->route('post.index');
     }
