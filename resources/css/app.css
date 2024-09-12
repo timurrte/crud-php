@@ -9,7 +9,7 @@ body {
 }
 
 #create-button {
-    margin: 30px 5px;
+    margin: 0px 0px 15px 5px;
 }
 
 .edit-btn {
@@ -21,4 +21,8 @@ body {
     display: flex;
     align-items: start;
     justify-content: space-between;
+}
+
+.links {
+    margin: 30px;
 }
